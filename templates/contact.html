@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block head %}
+<style type="text/css">
+#contact__title {
+    padding-top: 148px;
+    letter-spacing: -1px;
+    font-variation-settings: 'wght' 600;
+    font-size: 40px;
+    text-align: center;
+}
+#contact__subtitle {
+    width: 80%;
+    text-align: center;
+    max-width: 550px;
+    font-size: 20px;
+    color: #665665;
+    padding-bottom: 30px;
+}
+#contact__alternatives {
+    display: flex;
+    flex-flow: row nowrap;
+}
+#contact__alternatives a {
+    text-decoration: none;
+    background-color: #1F8542;
+    border-radius: 9999px;
+    padding: 8px 40px;
+    color: white;
+    font-variation-settings: 'wght' 500;
+    font-size: 25px;
+    margin: 5px;
+}
+#contact__alternatives .black {
+    background-color: black;
+    color: #eaeaea;
+}
+#contact__alternatives .white {
+    color: black;
+    background-color: white;
+    border: 1px solid #eaeaea;
+}
+</style>
+{% endblock head %}
+{% block content %}
+
+<h1 id="contact__title">Contact Us.</h1>
+<div id="contact__subtitle">If you would like to hear more about our work, or have any other questions. Feel free to contact us.</div>
+<div id="contact__alternatives">
+    <a class="black" href="mailto:jamie@mabon.io">
+        Email
+    </a>
+    <a class="white" href="https://wa.me/46728603450">
+        WhatsApp
+    </a>
+</div>
+
+{% endblock content %}

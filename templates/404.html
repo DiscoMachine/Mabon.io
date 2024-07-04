@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+    <title>This page does not exist</title>
+{% endblock title %}
+{% block head %}
+    <style type="text/css">
+        #the-404 {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: center;
+        }
+        #the-404__text {
+            font-size: 70px;
+            font-variation-settings: 'wght' 700;
+            background-color: #1F8542;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+{% endblock head %}
+{% block content %}
+    <div id="the-404">
+        <div id="the-404__text">
+            404
+        </div>
+        <div>
+            This page does not exist.
+        </div>
+    </div>
+{% endblock content %}
+

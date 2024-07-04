@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+    <head>
+        <meta charset="UTF-8">
+        {%- set title = page.title | default(value=section.title | default(value = config.title)) -%}
+        {%- set description = page.description | default(value=section.description | default(value = config.description)) -%}
+
+        {% block title %}
+        <title>{{ title }}</title>
+        {% endblock %}
+
+        <link rel="icon" type="image/png" href="/favicon.png">
+        <meta name="description" content="{{ description }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#157878">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+        {# Twitter and Facebook #}
+        <meta name="og:title" content="{{ title }}" />
+        <meta property="og:type" content="website" />
+        <meta property="og:description" content="{{ description }}" />
+        <meta property="og:url" content="{{ config.base_url }}" />
+        <meta name="og:image" content="/favicon.png" />
+        <meta name="twitter:creator" content="@MabonDesignSWE" />
+        <meta name="twitter:title" content="{{ title }}" />
+        <meta name="twitter:image" content="/favicon.png" />
+
+        <style type="text/css">
+            {{ load_data(path="static/normalize.min.css", format="plain") | safe }}
+            {% if config.mode != "serve" %}
+                {% set main_css = load_data(path="/static/main.css", format="plain") %}
+                {{ main_css | safe }}
+            {% endif %}
+        </style>
+
+        {# We embed the file if not running in serve mode. #}
+        {% if config.mode == "serve" %}
+             <link rel="stylesheet" href="/main.css">
+        {% endif %}
+
+        <style>
+            /* NAVBAR STUFF */
+
+            #the-navbar {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: center;
+                height: 48px;
+                border-bottom: #EAEAEA solid 1px;
+                background-color: white;
+            }
+
+            #the-navbar__top {
+                display: flex;
+                flex-flow: row nowrap;
+                height: 28px;
+                align-items: center;
+                justify-content: space-between;
+                padding: 0px 30px;
+                font-variation-settings: 'wght' 400;
+            }
+
+            #the-navbar__top__banner {
+                width: auto;
+                height: 100%;
+            }
+
+            #the-navbar__top__banner_img {
+                width: auto;
+                height: 100%;
+            }
+
+            #the-navbar__top a:hover {
+                text-decoration: none;
+            }
+
+            #the-navbar__top__contact {
+                text-decoration: none;
+                background-color: #1F8542;
+                border-radius: 6px;
+                padding: 4px 12px;
+                color: white;
+                font-variation-settings: 'wght' 500;
+                font-size: 0.9em;
+            }
+
+            /* FOOTER STUFF */
+
+            #the-footer {
+                width: 100%;
+                border-top: solid 1px #EAEAEA;
+                padding-top: 1rem;
+                margin-top: 2rem;
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                color: #665665;
+                background-color: white;
+            }
+
+            #the-footer__content {
+                max-width: 800px;
+                width: 100%;
+                display: flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                justify-content: space-around;
+            }
+
+            @media screen and (min-width: 64em) {
+                footer#the-footer {
+                    font-size: 1rem
+                }
+            }
+
+            @media screen and (min-width: 42em) and (max-width: 64em) {
+                footer#the-footer {
+                    font-size: 1rem
+                }
+            }
+
+            @media screen and (max-width: 42em) {
+                footer#the-footer {
+                    font-size: 0.9rem
+                }
+            }
+
+            #the-footer__links {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: space-around;
+                padding-bottom: 12px;
+            }
+
+            #the-footer__links a, #the-footer__links div {
+                display: flex;
+                padding: 10px;
+                flex-flow: column nowrap;
+                color: #8c8c8c;
+                font-variation-settings: 'wght' 600;
+            }
+
+            #the-footer__legal {
+                display: flex;
+                justify-content: left;
+                width: 100%;
+            }
+
+            #the-footer__copyright {
+                padding: 12px 8px;
+                font-size: 0.9em;
+            }
+        </style>
+
+        {% block head %} {% endblock %}
+    </head>
+    <body>
+        <script type="text/javascript">console.log('Site by Alexander Björkman and Jamie Mabon')</script>
+        <div>
+            <header id="the-navbar">
+                <div id="the-navbar__top">
+                    {% block titlebar %}
+                        <a href="/" id="the-navbar__top__banner">
+                            <img id="the-navbar__top__banner_img" alt="mabon.io" src="/banner.png">
+                        </a>
+                    {% endblock titlebar %}
+
+                    <a id="the-navbar__top__contact" href="/contact">
+                        Contact us
+                    </a>
+                </div>
+            </header>
+
+            <main id="the-content" class="main-content" role="main">
+                {% block content %} {% endblock %}
+            </main>
+        </div>
+        <footer id="the-footer">
+            <div id="the-footer__content">
+                <div class="the-footer__legal">
+                    <div>
+                        Mabon Media AB
+                    </div>
+                    <div>
+                        Bigarråvägen 5
+                    </div>
+                    <div>
+                        114 21 Stockholm, Sweden
+                    </div>
+                    <div>
+                        +46 72 860 34 50
+                    </div>
+                    <div>
+                        jamie@mabon.io
+                    </div>
+                </div>
+                <div>{# Just some whitespace. #}</div>
+                <nav id="the-footer__links">
+                    <a href="/contact">Contact us</a>
+                    <a href="https://instagram.com/@jamie.mabon">Instagram</a>
+                    <a href="/contact">Refunds</a>
+                </nav>
+            </div>
+            <div id="the-footer__copyright">©2024 mabon.io. All Rights Reserved.</div>
+        </footer>
+    </body>
+</html>
+

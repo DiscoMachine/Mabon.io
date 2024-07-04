@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block head %}
+<style type="text/css">
+#landing__title {
+    padding-top: 148px;
+    letter-spacing: -1px;
+    font-variation-settings: 'wght' 600;
+    font-size: 40px;
+    text-align: center;
+}
+#landing__subtitle {
+    width: 80%;
+    text-align: center;
+    max-width: 550px;
+    font-size: 20px;
+    color: #665665;
+    padding-bottom: 30px;
+}
+#landing__button {
+    text-decoration: none;
+    background-color: #1F8542;
+    border-radius: 9999px;
+    padding: 20px 30px;
+    color: white;
+    font-variation-settings: 'wght' 500;
+    font-size: 30px;
+}
+</style>
+{% endblock head %}
+{% block content %}
+
+<h1 id="landing__title">Your complete solution for content creation.</h1>
+<div id="landing__subtitle">Mabon.io delivers cutting-edge video production services, offering the expertise and reliability needed to create high-quality personalized video content.</div>
+<a id="landing__button" href="/contact">
+    Get in Touch
+</a>
+
+{% endblock content %}
