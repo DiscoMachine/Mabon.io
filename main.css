@@ -1,0 +1,98 @@
+@font-face {
+    font-family: 'Inter';
+    src: url("/Inter.var.woff2") format("woff2");
+    font-display: swap
+}
+
+* {
+    box-sizing: border-box
+}
+
+a {
+    color: #1e6bb8;
+    text-decoration: none
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Inter", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: 100svh;
+    background-color: #FAFAFA;
+}
+
+.main-content {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    word-wrap: break-word
+}
+
+.main-content h1,
+.main-content h2 {
+    text-align: left
+}
+
+h2.page-description {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-weight: normal;
+    opacity: 0.7;
+    font-size: 1rem
+}
+
+@media screen and (min-width: 64em) {
+    h2.page-description {
+        font-size: 1.25rem
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    h2.page-description {
+        font-size: 1.15rem
+    }
+}
+
+@media screen and (max-width: 42em) {
+    h2.page-description {
+        font-size: 1rem
+    }
+}
+
+.main-content :first-child {
+    margin-top: 0
+}
+
+@media screen and (min-width: 64em) {
+    .main-content {
+        /* max-width: 64rem; */
+
+        margin: 0 auto;
+        font-size: 1.1rem
+    }
+}
+
+@media screen and (min-width: 42em) and (max-width: 64em) {
+    .main-content {
+        font-size: 1.1rem
+    }
+}
+
+@media screen and (max-width: 42em) {
+    .main-content {
+        font-size: 1rem
+    }
+}
+
+
