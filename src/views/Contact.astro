@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+import { contact, copy, type Lang } from '../content';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+<Base lang={lang} page="contact">
+  <header class="page-head wrap">
+    <h1>{t.contactPage.title}</h1>
+    <p class="lead">{t.contactPage.sub}</p>
+    <div class="contact-panel">
+      <div class="actions">
+        <a class="btn btn-ink" href={`mailto:${contact.email}`}>{t.contactPage.email}</a>
+        <a class="btn btn-quiet" href={contact.whatsapp}>WhatsApp</a>
+      </div>
+      <dl>
+        <div><dt>{t.contactPage.emailLabel}</dt><dd><a href={`mailto:${contact.email}`}>{contact.email}</a></dd></div>
+        <div><dt>{t.contactPage.phoneLabel}</dt><dd><a href={contact.phoneHref}>{contact.phone}</a></dd></div>
+        <div><dt>{t.contactPage.office}</dt><dd>Bigarråvägen 5, 114 21 Stockholm</dd></div>
+      </dl>
+    </div>
+  </header>
+</Base>

@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import { copy, type Lang, videos } from '../content';
+
+interface Props { lang: Lang; video: (typeof videos)[number]; }
+const { lang, video } = Astro.props;
+const t = copy[lang];
+/* Rounded down to the thousand, so the figure stays true as views grow. */
+const views = new Intl.NumberFormat(t.locale).format(Math.floor(video.views / 1000) * 1000);
+---
+<article class="video" id={video.id}>
+  <div class="video-frame">
+    <a href={`https://www.youtube.com/watch?v=${video.id}`} data-video={video.id} data-title={video.title} aria-label={`${t.proof.watch}: ${video.title}`}>
+      <Image src={video.thumb} alt="" widths={[400, 720]} sizes="(max-width: 860px) 100vw, 360px" format="webp" quality={80} />
+      <span class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 4.500v15L20 12z" /></svg></span>
+    </a>
+  </div>
+  <h3 lang="sv">{video.title}</h3>
+  <p>{views}+ {t.proof.views} · {video.minutes} {t.proof.min}</p>
+</article>

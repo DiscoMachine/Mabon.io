@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Closing from '../components/Closing.astro';
+import photo from '../assets/jamie.jpg';
+import { copy, type Lang } from '../content';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+<Base lang={lang} page="about">
+  <header class="page-head wrap about">
+    <div>
+      <h1>{t.about.title}</h1>
+      <p class="lead">{t.about.lead}</p>
+      <p class="lead">{t.about.body}</p>
+    </div>
+    <Image class="about-photo" src={photo} alt={t.owner.alt} widths={[440, 880]} sizes="(max-width: 860px) 100vw, 440px" format="webp" quality={84} loading="eager" />
+  </header>
+  <Closing lang={lang} />
+</Base>

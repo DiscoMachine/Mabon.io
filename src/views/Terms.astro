@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import { copy, type Lang } from '../content';
+
+interface Props { lang: Lang; }
+const { lang } = Astro.props;
+const t = copy[lang];
+---
+<Base lang={lang} page="terms">
+  <header class="page-head wrap prose">
+    <h1>{t.terms.title}</h1>
+    {t.terms.paragraphs.map((paragraph) => <p class="lead">{paragraph}</p>)}
+  </header>
+</Base>
